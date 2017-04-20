@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--Lolita Yohannes
+COMM 644 - Assignment 8  -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COMM 644 - Assignment8 - Part2 - Tabs</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <script src="js/jquery-3.2.0.min.js"></script>
+    <script>
+    $(function (){
+        $("ul#tabs li").click(function(e){
+            if (!$(this).hasClass("active")) {
+                var tabNum = $(this).index();
+                var nthChild = tabNum+1;
+                $("ul#tabs li.active").removeClass("active");
+                $(this).addClass("active");
+                $("ul#content li.active").removeClass("active");
+                $("ul#content li:nth-child("+nthChild+")").addClass("active");
+            }
+        });
+  $("body").css({"font-family":"Raleway","line-height":"1.5","font-size": "14px"});
+  $("ul#tabs").css({
+  "list-style-type": "none",
+  "margin": "50px 0 30px 0",
+  "padding": "0",
+  "text-align": "center"});
+    });
+</script>
+
+<style>  ul#tabs li {
+   display: inline-block;
+    background-color: #ff9147;
+    border-radius: 8px;
+    border: solid 5px #000;
+    padding: 5px 20px;
+    margin-bottom: 4px;
+    color: #fff;
+    cursor: pointer; }
+    
+    ul#tabs li:hover {
+      background-color: #000; }
+    ul#tabs li.active {
+      background-color: #000; }
+
+ul#content {
+  list-style-type: none;
+  margin: 0 auto;
+    width: 700px;
+  padding: 0;
+  background-color: #d9d9d9;
+  border-radius: 5px;}
+ul#content li {
+    display: none;
+    padding: 30px;
+    border: solid 20px #ffa047;
+    border-radius: 5px;}
+    
+    ul#content li.active {
+      display: block; }
+    
+    ul#content li h3 {
+      font-weight: 700;
+      margin-bottom: 30px;
+      padding-bottom: 5px;
+      border-bottom: solid 5px #ff8247;
+    }     
+    
+    </style>
+</head>
+<body>
+<div class="container">
+<ul id="tabs">
+    <li class="active">Learning Outcomes</li>
+    <li>Learning Modules</li>
+    <li>Instructor Bio</li>
+
+</ul>
+<ul id="content">
+    <li class="active">
+              <h3>Learning Outcomes</h3>
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet purus urna. Proin dictum fringilla enim, sit amet suscipit dolor dictum in. Maecenas porttitor, est et malesuada congue, ligula elit fermentum massa, sit amet porta odio est at velit. Sed nec turpis neque. Fusce at mi felis, sed interdum tortor. Nullam pretium, est at congue mattis, nibh eros pharetra lectus, nec posuere libero dui consectetur arcu. Quisque convallis facilisis fermentum. Nam tincidunt, diam nec dictum mattis, nunc dolor ultrices ipsum, in mattis justo turpis nec ligula. Curabitur a ante mauris. Integer placerat imperdiet diam, facilisis pretium elit mollis pretium. Sed lobortis, eros non egestas suscipit, dui dui euismod enim, ac ultricies arcu risus at tellus. Donec imperdiet congue ligula, quis vulputate mauris ultrices non. Aliquam rhoncus, arcu a bibendum congue, augue risus tincidunt massa, vel vehicula diam dolor eget felis.</p>
+            </li>
+    <li>
+      <h3>Learning Modules</h3>
+       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet purus urna. Proin dictum fringilla enim, sit amet suscipit dolor dictum in. Maecenas porttitor, est et malesuada congue, ligula elit fermentum massa, sit amet porta odio est at velit. Sed nec turpis neque. Fusce at mi felis, sed interdum tortor. Nullam pretium, est at congue mattis, nibh eros pharetra lectus, nec posuere libero dui consectetur arcu. Quisque convallis facilisis fermentum. Nam tincidunt, diam nec dictum mattis, nunc dolor ultrices ipsum, in mattis justo turpis nec ligula. Curabitur a ante mauris. Integer placerat imperdiet diam, facilisis pretium elit mollis pretium. Sed lobortis, eros non egestas suscipit, dui dui euismod enim, ac ultricies arcu risus at tellus. Donec imperdiet congue ligula, quis vulputate mauris ultrices non. Aliquam rhoncus, arcu a bibendum congue, augue risus tincidunt massa, vel vehicula diam dolor eget felis.</p>
+    </li>
+    <li>
+      <h3>Instructor Bio</h3>
+       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet purus urna. Proin dictum fringilla enim, sit amet suscipit dolor dictum in. Maecenas porttitor, est et malesuada congue, ligula elit fermentum massa, sit amet porta odio est at velit. Sed nec turpis neque. Fusce at mi felis, sed interdum tortor. Nullam pretium, est at congue mattis, nibh eros pharetra lectus, nec posuere libero dui consectetur arcu. Quisque convallis facilisis fermentum. Nam tincidunt, diam nec dictum mattis, nunc dolor ultrices ipsum, in mattis justo turpis nec ligula. Curabitur a ante mauris. Integer placerat imperdiet diam, facilisis pretium elit mollis pretium. Sed lobortis, eros non egestas suscipit, dui dui euismod enim, ac ultricies arcu risus at tellus. Donec imperdiet congue ligula, quis vulputate mauris ultrices non. Aliquam rhoncus, arcu a bibendum congue, augue risus tincidunt massa, vel vehicula diam dolor eget felis.</p>
+    </li>
+            
+</ul>
+</div>
+
+
+</body>
+
+</html>

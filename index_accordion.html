@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--Lolita Yohannes
+COMM 644 - Assignment 8 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COMM 644 - Assignment8 - Part2 - Accordion</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <script src="js/jquery-3.2.0.min.js"></script>
+    <script>
+    $(function (){
+     $(".accordion_head").click(function(){
+		if ($('.accordion_body').is(':visible')) {
+			$(".accordion_body").slideUp(600);
+			$(".plusminus").text('+');
+//            $(".plusminus").css("background-color", "#000");
+		}
+		$(this).next(".accordion_body").slideDown(600); 
+		$(this).children(".plusminus").text('-');
+	}); 
+        
+    $("body").css("font-family","Raleway");
+    });
+    </script>
+<style>
+.accordion_container {
+ 	width: 500px;
+}
+.accordion_head {
+	background-color: #ff7247;
+    color: white;
+    cursor: pointer;
+    font-family: arial;
+    font-size: 14px;
+	margin: 0 0 1px 0;
+    padding: 7px 11px;
+	font-weight: bold;
+    border-radius: 5px;
+}
+.accordion_body {
+    display: none;
+	background: #a8a8a8;
+    border-radius: 5px;
+}
+.accordion_body p{
+	padding: 5px;
+	margin: 0px;
+}
+.plusminus{
+	float:left;
+    border-radius: 10%;
+    padding-right: 2px;
+    border: 1px #fff solid;
+/*    text-align: center;*/
+    
+}
+</style>
+    </head>
+    <body>
+    <div class="accordion_container">
+    <div class="accordion_head"><span class="plusminus">+</span>Why Pima</div>
+      <div class="accordion_body">
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+			</div>
+		<div class="accordion_head"><span class="plusminus">+</span>Apply</div>
+			<div class="accordion_body">
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+			</div>
+		<div class="accordion_head"><span class="plusminus">+</span>Take Assessments</div>
+			<div class="accordion_body">
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+			</div>
+       
+    </div>
+        
+    </body>
+
+
+</html>

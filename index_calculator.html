@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--Lolita Yohannes
+COMM 644 - Assignment 8 -->
+<html>
+<head>
+<meta charset="utf-8">
+<title>COMM 644 - Assignment8 - Part1 - Calculator</title>
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<script src="../js/jquery-3.2.0.min.js"></script>
+<!--
+//1.	Notice the markup that I’ve included for you in the web page. There is a text box that will display the value of each button click and 16 different buttons each of which represents a major key on a basic calculator. Begin by referencing the jQuery library and then immediately wire up the jQuery .ready() function. 
+//2.	This first part will require you to stylize all of the buttons programmatically. Using jQuery make each button the same width and height, give each button a unique background color, border style, width and color. Also, give the display a unique background color, set the font color and size, and set a unique border style, width, and color.
+//3.	Reference the “bubble capture” code from assignment 6. Rewrite this code so that it uses jQuery events and makes use of jQuery DOM manipulation techniques to set the display based on button selections made.
+-->
+<script>
+window.addEventListener("load", init);
+function init() {
+	var parent = document.getElementById("container");
+	parent.addEventListener("click", createHandlers);
+	 
+	function createHandlers(e) {
+		if (e.target !== e.currentTarget) {
+			document.getElementById("result").value += e.target.value;
+		}
+	}
+	
+	equal.addEventListener("click", function(){
+		document.getElementById("result").value = eval(document.getElementById("result").value); 
+	});
+}
+</script>
+<!--
+<script>
+    $(function() {
+        $("#container").on("click", function(event)  {
+           if ($(event.target) !== $(event.currentTarget)) {
+               $("#result").val() += $(event.target).val();
+           }
+           $("#equal").on("click", function() {
+               $("#result").val() = eval($("#result").val());
+            });
+        });
+    });
+    </script>
+-->
+
+<script> 
+$(function() {
+$("body").css("font-family", "Raleway");
+
+$("#result").css({"width": "428px","height":"70px","border-radius": "8px","background-color": "#000","font-size":"38px","color":"#fff","text-align":"right"});    
+$("#container").css({"margin-top":"6px","margin-left":"6px"});
+
+$(":button").css({"width":"72px","height":"72px","border-radius": "1px","padding":"52px","margin-right":"0px","margin-left":"-5px",
+"font-size":"20px"});
+
+$("#seven").css("border-radius", "8px 0 0 0")
+$("#divide").css({"border-radius":"0 8px 0 0","background-color": "#ff6347"});
+$("#add").css("background-color","#ff9147");
+$("#zero").css("width","215px");
+    
+
+$("#multiply").css("background-color", "#ff7247");
+$("#subtract").css("background-color", "#ff8247");
+    
+$("#equal").css({"width": "430px","height":"70px","margin-left":"0px","border-radius":"0 0 8px 8px","background-color": "#ff6347","font-size":"38px","color":"#fff","text-align":"center"}); 
+    
+$("#seven, #eight, #nine").css("background-color", "#6c6c6c");
+$("#four, #five, #six").css("background-color", "#a8a8a8");
+$("#one, #two, #three").css("background-color", "#bfbfbf");
+$("#zero, #period").css("background-color", "#d9d9d9");
+});
+
+</script>
+
+</head>
+
+<body>
+	<input type="text" readonly id="result">
+    <br>
+    <div id="container">
+        <input type="button" class="buttonNumber" id="seven" value="7">
+        <input type="button" class="buttonNumber" id="eight" value="8">
+        <input type="button" class="buttonNumber" id="nine" value="9">
+        <input type="button" class="buttondivide" id="divide" value="/">
+        <br>
+        <input type="button" class="buttonNumber" id="four" value="4">
+        <input type="button" class="buttonNumber" id="five" value="5">
+        <input type="button" class="buttonNumber" id="six" value="6">
+        <input type="button" id="multiply" value="*">
+        <br>
+        <input type="button" class="buttonNumber" id="one" value="1">
+        <input type="button" class="buttonNumber" id="two" value="2">
+        <input type="button" class="buttonNumber" id="three" value="3">
+        <input type="button" class="buttonNumber" id="subtract" value="-">
+        <br>
+        <input type="button" class="buttonNumber" id="zero" value="0">
+        <input type="button" id="period" value=".">
+<!--        <input type="button" id="equal" value="=">-->
+        <input type="button" id="add" value="+">
+    </div>
+      
+    <input type="button" id="equal" value="=">
+</body>
+</html>

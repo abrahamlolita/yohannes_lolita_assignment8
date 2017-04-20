@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--Lolita Yohannes
+COMM 644 - Assignment 8 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COMM 644 - Assignment8 - Part1</title>
+    <script src="js/jquery-3.2.0.min.js"></script>
+    <script>
+//1.	Create a button on a web page. Use the .click() method to display an alert message to the user indicating that the button has been clicked when the button is actually clicked. 
+//2.	Create a button on a web page. Attach the click event using the .bind() method to display an alert message to the user indicating that the button has been clicked when the button is actually clicked. 
+//3.	Create a button on a web page. Attach the click event using the .on() method to display an alert message to the user indicating that the button has been clicked when the button is actually clicked. 
+//4.	Create two buttons on a web page. Attach the click event to both buttons using a single handler using the .on() method. Again, an alert message should be displayed to the user indicating that a button has been clicked when either of the buttons are actually clicked. 
+              
+////STEP 1
+$(function() {
+$("#button01").click(function(event) {
+    window.alert("Button one has been clicked");
+    });
+});
+//        
+////STEP 2
+$(function() {
+$("#button02").bind("click", function(event)  {
+    window.alert("Button two has been clicked");
+    });
+});
+//        
+////STEP 3
+$(function() {
+$("#button03").on("click", function(event)  {
+    window.alert("Button three has been clicked");
+    });
+});
+//
+////STEP 4
+$(function() {
+$("#buttonDiv").on({
+click: function(event) {
+ window.alert("Button four has been clicked");
+}
+}, "button");
+});
+        
+//5.	Create a div on a web page. Use jQuery to set the div element to 400px wide and 400px high. Attach the click, mouseenter, and mouseleave events using the .on() method. Display an alert message to the user indicating that the div was either clicked on, the mouse entered it, or the mouse left it. 
+//6.	Rewrite the code from number 5. This time add a span tag to the web page. Display three different messages within the span tag when the user enters the div, leaves the div, or clicks on the div.
+//7.	Create a link within the web page and set its href attribute to browse to google.com. When the user clicks the link, first, prevent it from redirecting to that web site. Second, programmatically style the link so that its color changes to red. Third, display the name of the node that triggered the event within an alert box.
+//8.	Create a div tag within the web page. As the user resizes the browser, display the width and height of the browser window within the div tag.
+//9.	Create a text field using the <input> tag. When the input has focus, set the background to a light gray color. When the input does not have focus, reset the background back to a white color.
+        
+//STEP 5
+$(function() {
+$("#div01").css("border", "1px solid black");
+$("#div01").css("width", "400px");
+$("#div01").css("height", "400px");
+$("#div01").on({
+    click: function() {
+       window.alert("The div has been clicked");
+       },
+    mouseenter: function() {
+        window.alert("You hovered over the div");
+       }, 
+    mouseleave: function() {
+        window.alert("The mouse left the div");
+      }
+});
+});   
+
+//STEP 6
+$(function() {
+$("#div02").css("border", "1px solid black");
+$("#div02").css("width", "400px");
+$("#div02").css("height", "400px");
+$("#div02").on({
+    click: function() {
+       $("span").text("The div has been clicked");
+       },
+    mouseenter: function() {
+       $("span").text("You hovered over the div");
+       }, 
+    mouseleave: function() {
+        $("span").text("The mouse left the div");
+      }
+});
+});   
+
+//STEP 7
+$(function() {
+$("a").on("click", function(event)  {
+    event.preventDefault();
+    $("a").css("color", "red");
+    window.alert(event.target.nodeName);
+    });
+});
+        
+//STEP 8
+$(function() {
+ $(window).resize(function() {
+    $("#div03").css("border", "1px solid black");
+    $("#div03").text($(window).width());
+    });
+});
+
+//STEP 9
+$(function() {
+    $("#inputFocus").on({
+        focusin : function () {
+           $("#inputFocus").css("background-color", "#DFE3E6");
+        },
+        focusout : function () {
+            $("#inputFocus").css("background-color", "#fff");
+        }
+    });
+});
+        
+//10.	Add a form tag within a web page complete with 2 input fields: one that collects name and a second that collects an email. Add a submit button. When the user submits the form, if any one of the two fields is left empty, display an alert box to the user indicating that the fields are required. Give the field that the user left empty a red border. If both fields have values in them, set their borders to green.
+//STEP 10
+$(function() {
+    $("form").submit(function(event) {
+         if(($("#fullName").val() === "") || ($("#email").val() === "")) {
+           $("#fullName").css("border", "1px solid red");
+           $("#email").css("border", "1px solid red");
+           window.alert("fields must be filled out")
+           event.preventDefault();
+        } else {
+        $("#fullName").css("border", "1px solid green");
+        $("#email").css("border", "1px solid green");
+        event.preventDefault();
+        }
+    });
+ });       
+    
+</script>
+    
+</head>
+
+<!--STEP 1,2,3--->
+   <button id="button01">Click Here</button><br><br>
+   <button id="button02">Click Here</button><br><br>
+   <button id="button03">Click Here</button><br><br>
+   
+  <!--STEP 4 --->
+  <div id="buttonDiv">
+   <button id="button04-1">Click Here</button>&nbsp;&nbsp;&nbsp;
+   <button id="button04-2">Click Here</button><br><br>
+   </div>
+   
+  <!--STEP 5 --->
+   <div id="div01"></div><br><br><br>
+   
+   <!--STEP 6 --->
+   <div id="div02">
+     <span></span>   
+   </div><br><br><br>
+   
+   <!--STEP 7 --->
+   <a href="www.google.com">Google</a><br><br>
+   
+   <!--STEP 8 --->
+   <div id="div03"></div><br><br>
+  
+  <!--STEP 9 --->
+  <input type="text" id="inputFocus"><br><br><br>
+  
+   
+   <!--STEP 10-->
+   <form>
+       <input type="text" id="fullName" name=""><br><br>
+       <input type="email" id="email" name=""><br><br>
+       <input type="submit">
+   </form>
+    
+
+</html>
